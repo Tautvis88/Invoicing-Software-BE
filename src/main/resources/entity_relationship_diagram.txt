@@ -1,0 +1,28 @@
++-----------------+         +------------------+         +----------------+
+|     clients     |         |     invoices     |         |    signers     |
++-----------------+         +------------------+         +----------------+
+| id (PK)         |<------->| id (PK)          |<------->| id (PK)        |
+| name            |         | date             |         | name           |
+| address         |         | number           |         | position       |
+| country         |         | client_id (FK)   |         +----------------+
+| type            |         | signer_id (FK)   |
+| personal_id_num |         | total_without_vat|
+| company_code    |         | vat_amount       |
+| vat_code        |         | total_with_vat   |
+| phone_number    |         +------------------+
+| email           |
++-----------------+
+         |
+         |
+         v
++------------------+
+|     services     |
++------------------+
+| id (PK)          |
+| invoice_id (FK)  |
+| name             |
+| unit             |
+| quantity         |
+| price_per_unit   |
+| total_price      |
++------------------+
