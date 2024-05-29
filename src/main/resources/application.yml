@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: Invoicing Software BE
+  datasource:
+    url: jdbc:postgresql://localhost:5432/invoicing_db
+    username: postgres
+    password: admin
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
