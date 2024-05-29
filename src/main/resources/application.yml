@@ -9,6 +9,10 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true  # This will print the SQL statements executed by Hibernate to the console.
     hibernate:
-      ddl-auto: update
+      ddl-auto: update    # 'create' destroys existing data, 'update' adds new data, but does not remove anything
     show-sql: true
+  devtools:
+    restart:
+      enabled: false      # disables automatic application restarts from Spring Boot DevTools maven dependency
