@@ -20,7 +20,7 @@ public class Service {
 
 	private String name;
 	private String unit;
-	private Double quantity;
+	private int quantity;
 	private Double pricePerUnit;
 	private Double totalPrice;
 

@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "invoices")
@@ -20,7 +20,7 @@ public class Invoice {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private Date date;
+	private LocalDate localDate;
 	private String number;
 	private Double totalWithoutVat;
 	private Double vatAmount;

@@ -19,5 +19,4 @@ public class Signer {
 	private Long id;
 
 	private String name;
-	private String position;
 }

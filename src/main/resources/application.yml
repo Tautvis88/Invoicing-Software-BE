@@ -11,7 +11,7 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true  # This will print the SQL statements executed by Hibernate to the console.
     hibernate:
-      ddl-auto: update    # 'create' destroys existing data, 'update' adds new data, but does not remove anything
+      ddl-auto: create    # 'create' destroys existing data, 'update' adds new data, but does not remove anything
     show-sql: true
   devtools:
     restart:
