@@ -1,6 +1,7 @@
 package lt.statas.invoicing.service;
 
 import lombok.RequiredArgsConstructor;
+import lt.statas.invoicing.dto.ClientRequestDTO;
 import lt.statas.invoicing.dto.ClientResponseDTO;
 import lt.statas.invoicing.mapper.ClientMapper;
 import lt.statas.invoicing.model.Client;
@@ -28,8 +29,10 @@ public class ClientServiceImpl implements ClientService{
 	}
 
 	@Override
-	public Client createClient(final Client client) {
-		return null;
+	public ClientResponseDTO createClient(final ClientRequestDTO clientRequestDTO) {
+		Client client = clientMapper.mapToEntityClass(clientRequestDTO);
+		Client savedClient = clientRepository.save(client);
+		return clientMapper.mapToDTO(savedClient);
 	}
 
 	@Override

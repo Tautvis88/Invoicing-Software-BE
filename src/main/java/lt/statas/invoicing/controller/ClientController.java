@@ -1,14 +1,12 @@
 package lt.statas.invoicing.controller;
 
 import lombok.RequiredArgsConstructor;
+import lt.statas.invoicing.dto.ClientRequestDTO;
 import lt.statas.invoicing.dto.ClientResponseDTO;
 import lt.statas.invoicing.service.ClientService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,4 +28,13 @@ public class ClientController {
 		}
 	}
 
+	@PostMapping
+	public ResponseEntity<ClientResponseDTO> createClient(@RequestBody ClientRequestDTO clientRequestDTO) {
+		try {
+			ClientResponseDTO createdClient = clientService.createClient(clientRequestDTO);
+			return ResponseEntity.status(HttpStatus.CREATED).body(createdClient);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+		}
+	}
 }
