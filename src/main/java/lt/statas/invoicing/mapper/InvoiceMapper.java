@@ -15,7 +15,7 @@ public class InvoiceMapper {
 				.id(invoice.getId())
 				.date(invoice.getLocalDate().toString())
 				.number(invoice.getNumber())
-				.buyerName(invoice.getClient().getName())
+				.clientName(invoice.getClient().getName())
 				.totalWithoutVat(String.format("%.2f", invoice.getTotalWithoutVat()))
 				.vatAmount(String.format("%.2f", invoice.getVatAmount()))
 				.totalWithVat(String.format("%.2f", invoice.getTotalWithVat()))

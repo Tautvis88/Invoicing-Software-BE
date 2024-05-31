@@ -9,7 +9,7 @@ public class InvoiceResponseDTO {
 	private Long id;
 	private String date;
 	private String number;
-	private String buyerName;
+	private String clientName;
 	private String totalWithoutVat;
 	private String vatAmount;
 	private String totalWithVat;
