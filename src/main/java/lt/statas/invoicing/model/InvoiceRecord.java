@@ -7,12 +7,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "services")	// Without this, Hibernate creates database table 'service' (singular - uses class name).
+@Table(name = "invoice_records")	// Without this, Hibernate creates database table 'service' (singular - uses class name).
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Service {
+public class InvoiceRecord {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,14 +1,8 @@
 package lt.statas.invoicing.runner;
 
 import lombok.RequiredArgsConstructor;
-import lt.statas.invoicing.model.Client;
-import lt.statas.invoicing.model.Invoice;
-import lt.statas.invoicing.model.Service;
-import lt.statas.invoicing.model.Signer;
-import lt.statas.invoicing.repository.ClientRepository;
-import lt.statas.invoicing.repository.InvoiceRepository;
-import lt.statas.invoicing.repository.ServiceRepository;
-import lt.statas.invoicing.repository.SignerRepository;
+import lt.statas.invoicing.model.*;
+import lt.statas.invoicing.repository.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -18,19 +12,19 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class DatabaseTestRunner implements CommandLineRunner {
+public class TestDataLoader implements CommandLineRunner {
 
 	private final ClientRepository clientRepository;
 	private final SignerRepository signerRepository;
 	private final InvoiceRepository invoiceRepository;
-	private final ServiceRepository serviceRepository;
+	private final InvoiceRecordRepository invoiceRecordRepository;
 
 	@Override
 	public void run(String... args) {
 		List<Client> clients = new ArrayList<>();
 		List<Signer> signers = new ArrayList<>();
 		List<Invoice> invoices = new ArrayList<>();
-		List<Service> services = new ArrayList<>();
+		List<InvoiceRecord> invoiceRecords = new ArrayList<>();
 
 		Client client1 = Client.builder()
 				.name("MAŽEIKIŲ RAJONO SAVIVALDYBĖS ADMINISTRACIJA")
@@ -167,7 +161,7 @@ public class DatabaseTestRunner implements CommandLineRunner {
 
 		invoiceRepository.saveAll(invoices);
 
-		Service service1 = Service.builder()
+		InvoiceRecord invoiceRecord1 = InvoiceRecord.builder()
 				.name("Statybos darbai pagal sutartį Nr. 123")
 				.unit("vnt.")
 				.quantity(7)
@@ -175,9 +169,9 @@ public class DatabaseTestRunner implements CommandLineRunner {
 				.totalPrice(3500.0)
 				.invoice(invoice1)
 				.build();
-		services.add(service1);
+		invoiceRecords.add(invoiceRecord1);
 
-		Service service2 = Service.builder()
+		InvoiceRecord invoiceRecord2 = InvoiceRecord.builder()
 				.name("Projektavimo darbai pagal sutartį Nr. 456")
 				.unit("vnt.")
 				.quantity(1)
@@ -185,9 +179,9 @@ public class DatabaseTestRunner implements CommandLineRunner {
 				.totalPrice(5000.0)
 				.invoice(invoice2)
 				.build();
-		services.add(service2);
+		invoiceRecords.add(invoiceRecord2);
 
-		Service service3 = Service.builder()
+		InvoiceRecord invoiceRecord3 = InvoiceRecord.builder()
 				.name("Stogo remonto darbai adresu Naftininkų g. 9, Mažeikiai")
 				.unit("vnt.")
 				.quantity(1)
@@ -195,9 +189,9 @@ public class DatabaseTestRunner implements CommandLineRunner {
 				.totalPrice(2800.0)
 				.invoice(invoice3)
 				.build();
-		services.add(service3);
+		invoiceRecords.add(invoiceRecord3);
 
-		Service service4 = Service.builder()
+		InvoiceRecord invoiceRecord4 = InvoiceRecord.builder()
 				.name("Pamatų ir tvoros įrengimas adresu Rūtų g. 15, Anykščiai")
 				.unit("m")
 				.quantity(110)
@@ -205,9 +199,9 @@ public class DatabaseTestRunner implements CommandLineRunner {
 				.totalPrice(16500.0)
 				.invoice(invoice4)
 				.build();
-		services.add(service4);
+		invoiceRecords.add(invoiceRecord4);
 
-		Service service5 = Service.builder()
+		InvoiceRecord invoiceRecord5 = InvoiceRecord.builder()
 				.name("Evakuacinių priešgaisrinių kopėčių įrengimas adresu Rūtų g. 15, Anykščiai")
 				.unit("vnt.")
 				.quantity(2)
@@ -215,9 +209,9 @@ public class DatabaseTestRunner implements CommandLineRunner {
 				.totalPrice(1500.0)
 				.invoice(invoice4)
 				.build();
-		services.add(service5);
+		invoiceRecords.add(invoiceRecord5);
 
-		Service service6 = Service.builder()
+		InvoiceRecord invoiceRecord6 = InvoiceRecord.builder()
 				.name("Metalinių konstrukcijų paruošimas ir montavimas adresu Erfurto g. 10, Vilnius")
 				.unit("t")
 				.quantity(10)
@@ -225,9 +219,9 @@ public class DatabaseTestRunner implements CommandLineRunner {
 				.totalPrice(6000.0)
 				.invoice(invoice5)
 				.build();
-		services.add(service6);
+		invoiceRecords.add(invoiceRecord6);
 
-		Service service7 = Service.builder()
+		InvoiceRecord invoiceRecord7 = InvoiceRecord.builder()
 				.name("Pastato būklės nuolatiniai stebėjimai (1 mėn.) adresu Erfurto g. 10, Vilnius")
 				.unit("vnt.")
 				.quantity(1)
@@ -235,9 +229,9 @@ public class DatabaseTestRunner implements CommandLineRunner {
 				.totalPrice(400.0)
 				.invoice(invoice5)
 				.build();
-		services.add(service7);
+		invoiceRecords.add(invoiceRecord7);
 
-		serviceRepository.saveAll(services);
+		invoiceRecordRepository.saveAll(invoiceRecords);
 
 	}
 }

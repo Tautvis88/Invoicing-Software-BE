@@ -1,9 +1,9 @@
 package lt.statas.invoicing.repository;
 
-import lt.statas.invoicing.model.Service;
+import lt.statas.invoicing.model.InvoiceRecord;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ServiceRepository extends JpaRepository<Service, Long> {
+public interface InvoiceRecordRepository extends JpaRepository<InvoiceRecord, Long> {
 }

@@ -16,7 +16,7 @@
          |
          v
 +------------------+
-|     services     |
+|  invoiceRecords  |
 +------------------+
 | id (PK)          |
 | invoice_id (FK)  |
