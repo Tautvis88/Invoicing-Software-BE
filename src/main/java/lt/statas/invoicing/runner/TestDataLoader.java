@@ -18,6 +18,7 @@ public class TestDataLoader implements CommandLineRunner {
 	private final SignerRepository signerRepository;
 	private final InvoiceRepository invoiceRepository;
 	private final InvoiceRecordRepository invoiceRecordRepository;
+	private final PredefinedServiceRepository predefinedServiceRepository;
 
 	@Override
 	public void run(String... args) {
@@ -25,6 +26,7 @@ public class TestDataLoader implements CommandLineRunner {
 		List<Signer> signers = new ArrayList<>();
 		List<Invoice> invoices = new ArrayList<>();
 		List<InvoiceRecord> invoiceRecords = new ArrayList<>();
+		List<PredefinedService> predefinedServices = new ArrayList<>();
 
 		Client client1 = Client.builder()
 				.name("MAŽEIKIŲ RAJONO SAVIVALDYBĖS ADMINISTRACIJA")
@@ -233,5 +235,41 @@ public class TestDataLoader implements CommandLineRunner {
 
 		invoiceRecordRepository.saveAll(invoiceRecords);
 
+		PredefinedService predefinedService1 = PredefinedService.builder()
+				.name("Statybos darbai pagal sutartį Nr.")
+				.build();
+		predefinedServices.add(predefinedService1);
+
+		PredefinedService predefinedService2 = PredefinedService.builder()
+				.name("Projektavimo darbai pagal sutartį Nr.")
+				.build();
+		predefinedServices.add(predefinedService2);
+
+		PredefinedService predefinedService3 = PredefinedService.builder()
+				.name("Stogo remonto darbai adresu ")
+				.build();
+		predefinedServices.add(predefinedService3);
+
+		PredefinedService predefinedService4 = PredefinedService.builder()
+				.name("Pamatų ir tvoros įrengimas adresu ")
+				.build();
+		predefinedServices.add(predefinedService4);
+
+		PredefinedService predefinedService5 = PredefinedService.builder()
+				.name("Evakuacinių priešgaisrinių kopėčių įrengimas adresu ")
+				.build();
+		predefinedServices.add(predefinedService5);
+
+		PredefinedService predefinedService6 = PredefinedService.builder()
+				.name("Metalinių konstrukcijų paruošimas ir montavimas adresu ")
+				.build();
+		predefinedServices.add(predefinedService6);
+
+		PredefinedService predefinedService7 = PredefinedService.builder()
+				.name("Pastato būklės nuolatiniai stebėjimai (1 mėn.)")
+				.build();
+		predefinedServices.add(predefinedService7);
+
+		predefinedServiceRepository.saveAll(predefinedServices);
 	}
 }
